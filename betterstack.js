@@ -54,6 +54,9 @@ export class BetterstackLogger {
         if (p instanceof Error) {
           return p.message
         }
+        if (p instanceof Date) {
+          return p.toString()
+        }
         if (typeof p == "object") {
           return JSON.stringify(p)
         }
