@@ -17,4 +17,5 @@ bsLogger.log({message: "hello!"})
 bsLogger.log(err)
 bsLogger.log("uh oh", err)
 bsLogger.log("This is some data:", {name: "John Wick"})
+await bsLogger.flush() // flush all messages in one batch
 ```

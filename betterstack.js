@@ -39,6 +39,7 @@ export class BetterstackLogger {
       data.message = err.message
       data.level = "error" // betterstack entry
       data.error = {
+        message: err.message,
         stack: err.stack,
         status: err.status,
         cause: err.cause,
