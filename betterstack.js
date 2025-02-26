@@ -32,7 +32,11 @@ export class BetterstackLogger {
       params.pop()
     } else if (typeof last == "object") {
       // then data object
-      data.data = last
+      if (params.length > 1) {
+        data.data = last
+      } else {
+        data = { ...data, ...last }
+      }
       params.pop()
     }
     if (err) {
