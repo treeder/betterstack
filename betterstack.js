@@ -30,7 +30,7 @@ export class BetterstackLogger {
     if (last instanceof Error) {
       err = last
       params.pop()
-    } else if (typeof last == "object") {
+    } else if (this.isPlainObject(last)) {
       // then data object
       if (params.length > 1) {
         data.data = last
@@ -54,9 +54,6 @@ export class BetterstackLogger {
         if (p instanceof Error) {
           return p.message
         }
-        if (p instanceof Object) {
-          return JSON.stringify(p)
-        }
         if (typeof p == "object") {
           return JSON.stringify(p)
         }
@@ -79,6 +76,13 @@ export class BetterstackLogger {
     if (!r.ok) {
       console.error("BETTERSTACK ERROR:", r.status, r.statusText)
     }
+  }
+
+  isPlainObject(value) {
+    return typeof value === 'object' &&
+      value !== null &&
+      !Array.isArray(value) &&
+      value.constructor === Object
   }
 
 }
