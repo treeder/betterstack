@@ -1,0 +1,18 @@
+{
+  "name": "betterstack",
+  "version": "0.0.1",
+  "description": "Betterstack JavaScript library",
+  "main": "betterstack.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/treeder/betterstack"
+  },
+  "author": "@treeder",
+  "license": "MIT",
+  "dependencies": {
+    "api": "github:treeder/api"
+  }
+}
