@@ -1,6 +1,7 @@
 {
   "name": "betterstack",
   "version": "0.0.2",
+  "type": "module",
   "description": "Betterstack JavaScript library",
   "main": "betterstack.js",
   "scripts": {
