@@ -1,6 +1,14 @@
 import api from "api"
 
 export class BetterstackLogger {
+
+  /**
+   * 
+   * @param {*} options 
+   * options.host - betterstack host 
+   * options.token - betterstack token
+   * options.data - additional data to send with each log
+   */
   constructor(options = {}) {
     if (!options.url) {
       if (options.host) {
@@ -12,14 +20,19 @@ export class BetterstackLogger {
     if (!options.token) {
       throw new Error("BetterstackLogger: missing token")
     }
+    this.data = options.data || {}
     this.options = options
     this.messages = [] // for sending in batches
   }
+
+  with(key, value) {
+    this.data[key] = value
+    return this
+  }
+
   log(...params) {
     console.log(...params)
-    let data = {
-      level: "info"
-    }
+    let data = { ...this.data, level: "info" }
     let err = null
     // for (let p of params) {
     //   if (p instanceof Error) {
