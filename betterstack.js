@@ -43,6 +43,9 @@ export class BetterstackLogger {
     if (last instanceof Error) {
       err = last
       params.pop()
+    } else if (Array.isArray(last)) {
+      data.data = last
+      params.pop()
     } else if (this.isPlainObject(last)) {
       // then data object
       if (params.length > 1) {
