@@ -63,6 +63,7 @@ export class BetterstackLogger {
       }
     }
     if (params.length > 0) { // already popped
+      let m = data.message || ""
       data.message = params.map(p => {
         if (p instanceof Error) {
           return p.message
@@ -75,6 +76,7 @@ export class BetterstackLogger {
         }
         return p
       }).join(" ")
+      data.message += " " + m
     }
     if (!data.message) data.message = "no message"
     // console.log("betterstack data:", data)
